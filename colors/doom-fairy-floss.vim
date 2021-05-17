@@ -122,6 +122,12 @@ hi WhichKeyValue guifg=#4c94ad
 hi WhichKeyFloat guibg=#343145
 hi WhichKeyGroup guifg=#C5A3FF
 
+" Dashboard
+hi DashboardHeader guifg = #e6c000
+hi DashboardCenter guifg = #569cd6
+hi DashboardShortcut guifg = #c5a3ff
+hi DashboardFooter guifg = #e6c000
+
 " Indent Lines
 hi IndentBlanklineChar guifg=#3f444a guibg=NONE gui=NONE
 
