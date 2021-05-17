@@ -265,6 +265,13 @@ hi WhichKeyValue guifg=#73d0ff
 hi WhichKeyFloat guibg=#161b25
 hi WhichKeyGroup guifg=#d4bfff
 
+
+"Dashboard
+hi link DashboardHeader s:palette.comment
+hi link DashboardCenter s:palette.accent
+hi link DashboardShortcut s:palette.constant 
+hi link DashboardFooter s:palette.comment 
+
 " Diff Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------
 " Diff
