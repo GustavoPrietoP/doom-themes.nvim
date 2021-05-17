@@ -12,11 +12,11 @@
 " Author:              https://github.com/shaunsingh
 
 lua << EOF
-package.loaded['moonlight'] = nil
-package.loaded['moonlight.util'] = nil
-package.loaded['moonlight.colors'] = nil
-package.loaded['moonlight.theme'] = nil
-package.loaded['moonlight.functions'] = nil
+package.loaded['doom-moonlight'] = nil
+package.loaded['doom-moonlight.util'] = nil
+package.loaded['doom-moonlight.colors'] = nil
+package.loaded['doom-moonlight.theme'] = nil
+package.loaded['doom-moonlight.functions'] = nil
 
-require('moonlight').set()
+require('doom-moonlight').set()
 EOF
