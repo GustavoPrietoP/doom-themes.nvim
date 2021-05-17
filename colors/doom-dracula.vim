@@ -7,7 +7,7 @@ if exists('syntax_on')
 endif
 let g:colors_name='doom-dracula'
 
-hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#1f2129 ctermbg=236 gui=NONE cterm=NONE
+hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#282a36 ctermbg=236 gui=NONE cterm=NONE
 hi Comment guifg=#6272a4 ctermfg=61 guibg=NONE ctermbg=NONE gui=italic cterm=italic
 hi Constant guifg=#f1fa8c ctermfg=228 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi String guifg=#f1fa8c ctermfg=228 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -42,10 +42,10 @@ hi Underlined guifg=#8be9fd ctermfg=117 gui=underline cterm=underline
 hi Cursor guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
 hi ColorColumn guifg=NONE ctermfg=NONE guibg=#2c323c ctermbg=236 gui=NONE cterm=NONE
 hi CursorLineNr guifg=#abb2bf ctermfg=249 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi SignColumn guifg=NONE ctermfg=NONE guibg=#1f2129 ctermbg=236 gui=NONE cterm=NONE
+hi SignColumn guifg=NONE ctermfg=NONE guibg=#282a36 ctermbg=236 gui=NONE cterm=NONE
 hi Conceal guifg=#6272a4 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi CursorColumn guifg=NONE ctermfg=NONE guibg=#2c323c ctermbg=236 gui=NONE cterm=NONE
-hi CursorLine guifg=NONE ctermfg=NONE guibg=#1f2129 ctermbg=236 gui=NONE cterm=NONE
+hi CursorLine guifg=NONE ctermfg=NONE guibg=#282a36 ctermbg=236 gui=NONE cterm=NONE
 hi Directory guifg=#8be9fd ctermfg=117 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi DiffAdd guifg=#1e1e1e ctermfg=234 guibg=#50fa7b ctermbg=84 gui=NONE cterm=NONE
 hi DiffChange guifg=#ffb86c ctermfg=215 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -77,7 +77,7 @@ hi StatusLineTerm guifg=#abb2bf ctermfg=249 guibg=#2c323c ctermbg=236 gui=NONE c
 hi StatusLineTermNC guifg=#2c323c ctermfg=236 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi TabLine guifg=#6272a4 ctermfg=61 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi TabLineSel guifg=#abb2bf ctermfg=249 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi TabLineFill guifg=NONE ctermfg=NONE guibg=#1f2129 ctermbg=236 gui=NONE cterm=NONE
+hi TabLineFill guifg=NONE ctermfg=NONE guibg=#282a36 ctermbg=236 gui=NONE cterm=NONE
 hi Terminal guifg=#abb2bf ctermfg=249 guibg=#1e1e1e ctermbg=234 gui=NONE cterm=NONE
 hi Visual guifg=NONE ctermfg=NONE guibg=#3e4452 ctermbg=238 gui=NONE cterm=NONE
 hi VisualNOS guifg=#3e4452 ctermfg=238 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -220,10 +220,13 @@ hi LspDiagnosticsUnderlineHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE 
 hi WhichKeySeparator guifg=#565761
 hi WhichKeyDesc guifg=#539ed2
 hi WhichKeyValue guifg=#539ed2
-hi WhichKeyFloat guibg=#1f2129
+hi WhichKeyFloat guibg=#282a36
 hi WhichKeyGroup guifg=#C5A3FF
 hi DashboardHeader guifg = #6272a4
 hi DashboardCenter guifg = #ff79c6
 hi DashboardShortcut guifg = #8be9fd
 hi DashboardFooter guifg = #6272a4
 
+if &filetype == 'dashboard'
+    hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#1f2129 ctermbg=236 gui=NONE cterm=NONE
+endif
