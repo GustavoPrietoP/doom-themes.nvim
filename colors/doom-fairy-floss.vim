@@ -26,7 +26,7 @@ hi MatchParen guifg=#f8f8f0 guibg=#e6c000 gui=NONE
 " Side columns {{{
 
 hi LineNr guifg=#a8a4b1 guibg=NONE gui=NONE " fg is not defined on the original theme. It was taken using Digital Color Meter
-hi link EndOfBuffer LineNr
+hi EndOfBuffer guifg=#5a5475 guibg=#5a5475 gui=NONE
 hi NonText guifg=#a8a4b1 guibg=NONE gui=NONE " fg is not defined on the original theme. It was taken using Digital Color Meter
 hi SignColumn guifg=#a8a4b1 guibg=NONE gui=NONE
 hi VertSplit guifg=#373348 guibg=bg gui=NONE
@@ -115,9 +115,12 @@ hi WildMenu guifg=bg guibg=#c2ffdf gui=bold
 
 "Whichkey
 
+hi WhichKey guifg=#C2FFDF
 hi WhichKeySeparator guifg=#ae9414
-hi WhichKeyDesc guifg=#467d95
+hi WhichKeyDesc guifg=#4c94ad
+hi WhichKeyValue guifg=#4c94ad
 hi WhichKeyFloat guibg=#343145
+hi WhichKeyGroup guifg=#C5A3FF
 
 " Indent Lines
 hi IndentBlanklineChar guifg=#3f444a guibg=NONE gui=NONE
