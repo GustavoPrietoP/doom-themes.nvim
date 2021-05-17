@@ -113,6 +113,16 @@ hi WildMenu guifg=bg guibg=#c2ffdf gui=bold
 
 " }}}
 
+"Whichkey
+
+WhichKey guibg=#343145
+WhichKeySeparator guibg=#ae9414
+WhichKeyDesc guibg=#3c5065
+
+
+" Indent Lines
+hi IndentBlanklineChar guifg=#3f444a guibg=NONE gui=NONE
+
 " Tabline {{{
 
 hi TabLine guifg=#a8a4b1 guibg=#373348 gui=NONE
