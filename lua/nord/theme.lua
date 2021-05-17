@@ -104,6 +104,7 @@ theme.loadEditor = function ()
 		StatusLineNC =  		{ fg = nord.text, bg = nord.disabled },
 		StatusLineTerm =		{ fg = nord.fg, bg = nord.contrast },
 		StatusLineTermNC =		{ fg = nord.text, bg = nord.disabled },
+        VertSplit =             { fg = "#3e4452", bg = nord.none},
 		TabLineFill =			{ fg = nord.fg },
 		TablineSel =			{ fg = nord.bg, bg = nord.accent },
 		Tabline =				{ fg = nord.fg },
@@ -112,8 +113,8 @@ theme.loadEditor = function ()
 		VisualNOS =				{ fg = nord.none, bg = nord.selection },
 		WarningMsg =			{ fg = nord.yellow },
 		WildMenu =				{ fg = nord.orange, bg = nord.none, style = 'bold' },
-		CursorColumn =			{ fg = nord.none, bg = nord.active },
-		CursorLine =			{ fg = nord.none, bg = nord.none },
+		CursorColumn =			{ fg = nord.bg_alt, bg = nord.active },
+		CursorLine =			{ fg = nord.none, bg = "#2c323c"},
 		ToolbarLine =			{ fg = nord.fg, bg = nord.bg_alt },
 		ToolbarButton =			{ fg = nord.fg, bg = nord.none, style = 'bold' },
 		NormalMode =			{ fg = nord.accent, bg = nord.none, style = 'reverse' },
@@ -144,13 +145,6 @@ theme.loadEditor = function ()
     else
 		editor.Normal =				{ fg = nord.fg, bg = nord.bg } -- normal text and background color
 		editor.SignColumn =			{ fg = nord.fg, bg = nord.bg }
-    end
-
-    -- Remove window split borders
-    if vim.g.nord_borders == true then
-		editor.VertSplit =				{ fg = nord.border }
-    else
-		editor.VertSplit =				{ fg = nord.bg }
     end
 
     return editor
