@@ -116,7 +116,7 @@ hi WildMenu guifg=bg guibg=#c2ffdf gui=bold
 "Whichkey
 
 hi WhichKeySeparator guifg=#ae9414
-hi WhichKeyDesc guifg=#3c5065
+hi WhichKeyDesc guifg=#467d95
 hi WhichKeyFloat guibg=#343145
 
 " Indent Lines
