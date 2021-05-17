@@ -93,7 +93,7 @@ theme.loadEditor = function ()
 
 	local editor = {
 		NormalFloat =			{ fg = moonlight.fg, bg = moonlight.float }, -- normal text and background color
-		ColorColumn =			{ fg = moonlight.none, bg = moonlight.active }, --  used for the columns set with 'colorcolumn'
+		ColorColumn =			{ fg = moonlight.none, bg = moonlight.contrast }, --  used for the columns set with 'colorcolumn'
 		Conceal =				{ fg = moonlight.disabled }, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		Cursor =				{ fg = moonlight.cursor, bg = moonlight.none, style = 'reverse' }, -- the character under the cursor
 		CursorIM =				{ fg = moonlight.cursor, bg = moonlight.none, style = 'reverse' }, -- like Cursor, but used when in IME mode
@@ -102,7 +102,7 @@ theme.loadEditor = function ()
 		DiffChange =			{ fg = moonlight.orange, bg = moonlight.none, style = 'reverse' }, --  diff mode: Changed line
 		DiffDelete =			{ fg = moonlight.red, bg = moonlight.none, style = 'reverse' }, -- diff mode: Deleted line
 		DiffText =				{ fg = moonlight.yellow, bg = moonlight.none, style = 'reverse' }, -- diff mode: Changed text within a changed line
-		EndOfBuffer =			{ fg = moonlight.disabled },
+		EndOfBuffer =			{ fg = moonlight.bg },
 		ErrorMsg =				{ fg = moonlight.none },
 		Folded =				{ fg = moonlight.disabled, bg = moonlight.none, style = 'italic' },
 		FoldColumn =			{ fg = moonlight.blue },
