@@ -13,9 +13,9 @@ lua << EOF
 local filetype = vim.fn.expand("%:t")
 
 if filetype:lower() == "dashboard" then
-  vim.cmd [[hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#1f2129 ctermbg=236 ]]
+  vim.cmd [[hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#1f2129 ]]
 else
-  vim.cmd [[hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#282a36 ctermbg=236]]
+  vim.cmd [[hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#282a36 ]]
 end
 
 EOF
