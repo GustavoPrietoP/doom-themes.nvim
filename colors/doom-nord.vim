@@ -1,9 +1,9 @@
 lua << EOF
-package.loaded['nord'] = nil
-package.loaded['nord.util'] = nil
-package.loaded['nord.colors'] = nil
-package.loaded['nord.theme'] = nil
-package.loaded['nord.functions'] = nil
+package.loaded['doom-nord'] = nil
+package.loaded['doom-nord.util'] = nil
+package.loaded['doom-nord.colors'] = nil
+package.loaded['doom-nord.theme'] = nil
+package.loaded['doom-nord.functions'] = nil
 
 require('doom-nord').set()
 EOF
