@@ -8,11 +8,8 @@ endif
 let g:colors_name='doom-dracula'
 
 
-if &filetype ==? 'Dashboard'
-    hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#1f2129 ctermbg=236
-else
-    hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#282a36 ctermbg=236
-endif
+autocmd FileType dashboard hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#1f2129 ctermbg=236
+hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#282a36 ctermbg=236
 "hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#282a36 ctermbg=236 gui=NONE cterm=NONE
 hi Comment guifg=#6272a4 ctermfg=61 guibg=NONE ctermbg=NONE gui=italic cterm=italic
 hi Constant guifg=#f1fa8c ctermfg=228 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
