@@ -268,7 +268,7 @@ hi WhichKeyGroup guifg=#d4bfff
 
 "Dashboard
 hi link DashboardHeader Comment
-hi link DashboardCenter guifg = #F29718
+hi DashboardCenter guifg = #F29718
 hi link DashboardShortcut Constant 
 hi link DashboardFooter Comment 
 
