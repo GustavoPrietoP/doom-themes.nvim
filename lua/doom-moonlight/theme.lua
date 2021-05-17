@@ -138,7 +138,7 @@ theme.loadEditor = function ()
 		VisualNOS =				{ fg = moonlight.none, bg = moonlight.selection },
 		WarningMsg =			{ fg = moonlight.yellow },
 		WildMenu =				{ fg = moonlight.orange, bg = moonlight.none, style = 'bold' },
-		CursorColumn =			{ fg = moonlight.none, bg = moonlight.active },
+		CursorColumn =			{ fg = moonlight.bg_alt, bg = moonlight.active },
 		CursorLine =			{ fg = moonlight.none, bg = moonlight.none },
 		ToolbarLine =			{ fg = moonlight.fg, bg = moonlight.bg_alt },
 		ToolbarButton =			{ fg = moonlight.fg, bg = moonlight.none, style = 'bold' },
@@ -146,6 +146,7 @@ theme.loadEditor = function ()
 		InsertMode =			{ fg = moonlight.green, bg = moonlight.none, style = 'reverse' },
 		ReplacelMode =			{ fg = moonlight.red, bg = moonlight.none, style = 'reverse' },
 		VisualMode =			{ fg = moonlight.purple, bg = moonlight.none, style = 'reverse' },
+        VertSplit =             { fg = "#3E4452", bg = moonlight.none},
 		CommandMode =			{ fg = moonlight.gray, bg = moonlight.none, style = 'reverse' },
 		Warnings =				{ fg = moonlight.yellow },
 
@@ -170,13 +171,6 @@ theme.loadEditor = function ()
     else
 		editor.Normal =				{ fg = moonlight.fg, bg = moonlight.bg } -- normal text and background color
 		editor.SignColumn =			{ fg = moonlight.fg, bg = moonlight.bg }
-    end
-
-    -- Remove window split borders
-    if vim.g.moonlight_borders == true then
-		editor.VertSplit =				{ fg = moonlight.border }
-    else
-		editor.VertSplit =				{ fg = moonlight.bg }
     end
 
     return editor
@@ -438,7 +432,7 @@ theme.loadPlugins = function()
         -- Indent Blankline
         IndentBlanklineChar =                   { fg = moonlight.highlight },
         IndentBlanklineContextChar =            { fg = moonlight.disabled },
-	
+
 	 -- Nvim dap
          DapBreakpoint =                         { fg = moonlight.red },
          DapStopped =                            { fg = moonlight.green },
