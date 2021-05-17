@@ -144,6 +144,8 @@ hi! link Delimiter        Special
 hi! link SpecialComment   Special
 hi! link Debug            Special
 
+call s:h("EndOfBuffer",           {"fg": s:bg, "bg": s:bg})
+
 call s:h("Underlined",    {"fg": s:norm                      , "gui": "underline", "cterm": "underline"})
 call s:h("Ignore",        {"fg": s:bg                                                                  })
 call s:h("Error",         {"fg": s:dark_red, "bg": s:bg_subtle , "gui": "bold"     , "cterm": "bold"     })
@@ -334,6 +336,12 @@ hi WhichKeyDesc  guifg=#aaffe4
 hi WhichKeyValue guifg=#aaffe4
 hi WhichKeyFloat guibg=#12101f
 hi WhichKeyGroup guifg=#8161e3
+
+"Dashboard
+hi DashboardHeader guifg = #565575
+hi DashboardCenter guifg =#ff8080
+hi DashboardShortcut guifg = #aaffe4
+hi DashboardFooter guifg = #565575
 
 "Buffer
 hi BufferTabpageFill guibg=s:subtle_black
