@@ -11,9 +11,9 @@ let g:colors_name='doom-dracula'
 
 lua << EOF
 if vim.bo.filetype:lower() == "dashboard" then
-  vim.cmd [[autocmd hi Normal guifg=#f8f8f2 guibg=#1f2129 ]]
+  vim.cmd [[autocmd FileType dashboard hi Normal guifg=#f8f8f2 guibg=#1f2129 ]]
 else
-  vim.cmd [[autocmd hi Normal guifg=#f8f8f2 guibg=#282a36 ]]
+  vim.cmd [[autocmd FileType dashboard hi Normal guifg=#f8f8f2 guibg=#282a36 ]]
 end
 
 EOF
