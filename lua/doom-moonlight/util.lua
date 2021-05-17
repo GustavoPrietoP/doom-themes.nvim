@@ -1,5 +1,5 @@
 local util = {}
-local moonlight = require('moonlight.theme')
+local moonlight = require('doom-moonlight.theme')
 
 -- Go trough the table and highlight the group with the color values
 util.highlight = function (group, color)

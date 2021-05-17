@@ -10,7 +10,7 @@
 -- Description:         Port of VSCode's Moonlight colorscheme for NeoVim
 -- Author:              https://github.com/shaunsingh
 
-local util = require('moonlight.util')
+local util = require('doom-moonlight.util')
 
 -- Load the theme
 local set = function ()

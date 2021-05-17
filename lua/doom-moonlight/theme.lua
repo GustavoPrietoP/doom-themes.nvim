@@ -1,4 +1,4 @@
-local moonlight = require("moonlight.colors")
+local moonlight = require("doom-moonlight.colors")
 
 local theme = {}
 
