@@ -1,5 +1,5 @@
 local util = {}
-local nord = require('nord.theme')
+local nord = require('doom-nord.theme')
 
 -- Go trough the table and highlight the group with the color values
 util.highlight = function (group, color)

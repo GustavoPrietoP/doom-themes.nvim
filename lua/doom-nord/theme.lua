@@ -1,4 +1,4 @@
-local nord = require("nord.colors")
+local nord = require("doom-nord.colors")
 
 local theme = {}
 
