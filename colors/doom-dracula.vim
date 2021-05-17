@@ -10,9 +10,7 @@ let g:colors_name='doom-dracula'
 
 
 lua << EOF
-local filetype = vim.fn.expand("%:t")
-
-if filetype:lower() == "dashboard" then
+if vim.bo.filetype:lower() == "dashboard" then
   vim.cmd [[hi Normal guifg=#f8f8f2 guibg=#1f2129 ]]
 else
   vim.cmd [[hi Normal guifg=#f8f8f2 guibg=#282a36 ]]
