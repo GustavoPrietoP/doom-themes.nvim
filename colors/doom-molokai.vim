@@ -72,6 +72,13 @@ hi LspDiagnosticsUnderlineInformation guifg=#88c0d0 ctermfg=110 guibg=NONE cterm
 hi LspDiagnosticsUnderlineHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
 
+hi DashboardHeader guifg = #75715E
+hi DashboardCenter guifg = #F92672
+hi DashboardShortcut guifg =#FD971F
+hi DashboardFooter guifg = #75715E
+
+
+
 hi Keyword         guifg=#F92672               gui=none
 hi Label           guifg=#E6DB74               gui=none
 hi Macro           guifg=#C4BE89               gui=italic
