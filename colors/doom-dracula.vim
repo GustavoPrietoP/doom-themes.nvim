@@ -222,9 +222,8 @@ hi WhichKeyDesc guifg=#539ed2
 hi WhichKeyValue guifg=#539ed2
 hi WhichKeyFloat guibg=#1f2129
 hi WhichKeyGroup guifg=#C5A3FF
-
-hi DashboardHeader guifg = #44475a
+hi DashboardHeader guifg = #6272a4
 hi DashboardCenter guifg = #ff79c6
 hi DashboardShortcut guifg = #8be9fd
-hi DashboardFooter guifg = #565761
+hi DashboardFooter guifg = #6272a4
 
