@@ -84,7 +84,7 @@ hi Question        guifg=#66D9EF
 hi Repeat          guifg=#F92672               gui=bold
 hi Search          guifg=#000000 guibg=#FFE792
 " marks
-hi SignColumn      guifg=#A6E22E guibg=#232526
+hi SignColumn      guifg=#A6E22E guibg=#1b1d1e
 hi SpecialChar     guifg=#F92672               gui=bold
 hi SpecialComment  guifg=#7E8E91               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
@@ -133,7 +133,7 @@ else
    hi CursorLineNr    guifg=#FD971F               gui=none
    hi CursorColumn                  guibg=#1f2120
    hi ColorColumn                   guibg=#232526
-   hi LineNr          guifg=#1d1f1f guibg=#232526
+   hi LineNr          guifg=#BCBCBC guibg=#1b1d1e
    hi NonText         guifg=#465457
    hi SpecialKey      guifg=#465457
 end
