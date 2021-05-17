@@ -20,7 +20,7 @@ if exists('syntax_on')
 endif
 
 let g:colors_name = 'doom-horizon'
-
+""
 hi! ColorColumn cterm=NONE gui=NONE ctermbg=235 guibg=#2e303e
 hi! CursorColumn cterm=NONE gui=NONE ctermbg=235 guibg=#2e303e
 hi! CursorLine cterm=NONE gui=NONE ctermbg=235 guibg=#2e303e
@@ -44,7 +44,7 @@ hi! Folded cterm=NONE gui=NONE ctermbg=233 ctermfg=242 guibg=#1c1e26 guifg=#6c6f
 hi! FoldColumn cterm=NONE gui=NONE ctermbg=233 ctermfg=242 guibg=#1c1e26 guifg=#6c6f93
 hi! Function cterm=NONE gui=NONE ctermfg=37 guifg=#25b0bc
 hi! Identifier cterm=italic gui=italic ctermfg=203 guifg=#e95678
-hi! Statement cterm=bold gui=bold ctermfg=171 guifg=#b877db
+hi! Statement cterm=NONE gui=NONE ctermfg=171 guifg=#b877db
 hi! Include cterm=NONE gui=NONE ctermfg=171 guifg=#b877db
 hi! LineNr cterm=NONE gui=NONE ctermbg=233 ctermfg=239 guibg=#1c1e26 guifg=#6c6f93
 hi! MatchParen cterm=NONE gui=NONE ctermbg=237 ctermfg=255 guibg=#3e445e guifg=#ffffff
@@ -204,14 +204,25 @@ hi! link typescriptMessage Normal
 hi! link typescriptNull Constant
 hi! link typescriptParens Normal
 
-hi LSPDiagnosticsWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsDefaultError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi! LSPDiagnosticsWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsDefaultError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsUnderlineWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsUnderlineError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsUnderlineInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsUnderlineHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+
+hi! WhichKeySeparator guifg=#6a6a6a
+hi! WhichKeyDesc guifg=#09f7a0
+hi! WhichKeyValue guifg=#09f7a0
+hi! WhichKeyFloat guibg=#232431
+hi! WhichKeyGroup guifg=#6c6f93
+
+hi! DashboardHeader guifg = #6a6a6a
+hi! DashboardCenter guifg = #b877db
+hi! DashboardShortcut guifg = #f09483
+hi! DashboardFooter guifg = #6a6a6a
 
 if has('nvim')
   let g:terminal_color_0 = '#1c1e26'
