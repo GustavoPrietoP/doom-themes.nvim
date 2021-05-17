@@ -8,7 +8,7 @@ endif
 let g:colors_name='doom-dracula'
 
 
-if &filetype ==? 'dashboard'
+if &filetype ==? 'Dashboard'
     hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#1f2129 ctermbg=236
 else
     hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#282a36 ctermbg=236
