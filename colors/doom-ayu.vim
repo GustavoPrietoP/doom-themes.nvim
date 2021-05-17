@@ -1,262 +1,361 @@
 " Initialisation:"{{{
-" ----------------------------------------------------------------------------
+
 hi clear
 if exists("syntax_on")
   syntax reset
 endif
 
-let s:style = get(g:, 'ayucolor', 'dark')
 let g:colors_name = "doom-ayu"
-"}}}
-
-" Palettes:"{{{
-" ----------------------------------------------------------------------------
-
-let s:palette = {}
-
-let s:palette.bg        = {'dark': "#0F1419",  'light': "#FAFAFA",  'mirage': "#212733"}
-
-let s:palette.comment   = {'dark': "#5C6773",  'light': "#ABB0B6",  'mirage': "#5C6773"}
-let s:palette.markup    = {'dark': "#F07178",  'light': "#F07178",  'mirage': "#F07178"}
-let s:palette.constant  = {'dark': "#FFEE99",  'light': "#A37ACC",  'mirage': "#D4BFFF"}
-let s:palette.operator  = {'dark': "#E7C547",  'light': "#E7C547",  'mirage': "#80D4FF"}
-let s:palette.tag       = {'dark': "#36A3D9",  'light': "#36A3D9",  'mirage': "#5CCFE6"}
-let s:palette.regexp    = {'dark': "#95E6CB",  'light': "#4CBF99",  'mirage': "#95E6CB"}
-let s:palette.string    = {'dark': "#B8CC52",  'light': "#86B300",  'mirage': "#BBE67E"}
-let s:palette.function  = {'dark': "#FFB454",  'light': "#F29718",  'mirage': "#FFD57F"}
-let s:palette.special   = {'dark': "#E6B673",  'light': "#E6B673",  'mirage': "#FFC44C"}
-let s:palette.keyword   = {'dark': "#FF7733",  'light': "#FF7733",  'mirage': "#FFAE57"}
-
-let s:palette.error     = {'dark': "#FF3333",  'light': "#FF3333",  'mirage': "#FF3333"}
-let s:palette.accent    = {'dark': "#F29718",  'light': "#FF6A00",  'mirage': "#FFCC66"}
-let s:palette.panel     = {'dark': "#14191F",  'light': "#FFFFFF",  'mirage': "#272D38"}
-let s:palette.guide     = {'dark': "#2D3640",  'light': "#D9D8D7",  'mirage': "#3D4751"}
-let s:palette.line      = {'dark': "#151A1E",  'light': "#F3F3F3",  'mirage': "#242B38"}
-let s:palette.selection = {'dark': "#253340",  'light': "#F0EEE4",  'mirage': "#343F4C"}
-let s:palette.fg        = {'dark': "#E6E1CF",  'light': "#5C6773",  'mirage': "#D9D7CE"}
-let s:palette.fg_idle   = {'dark': "#3E4B59",  'light': "#828C99",  'mirage': "#607080"}
+let s:ayu_sign_contrast = get(g:, 'ayu_sign_contrast', 0)
+let s:ayu_italic_comment = get(g:, 'ayu_italic_comment', 0)
 
 "}}}
 
-" Highlighting Primitives:"{{{
-" ----------------------------------------------------------------------------
+" Helper Functions:"{{{
 
-function! s:build_prim(hi_elem, field)
-  let l:vname = "s:" . a:hi_elem . "_" . a:field " s:bg_gray
-  let l:gui_assign = "gui".a:hi_elem."=".s:palette[a:field][s:style] " guibg=...
-  exe "let " . l:vname . " = ' " . l:gui_assign . "'"
+function! s:sign_bg()
+    return s:ayu_sign_contrast ? 'panel_bg' : ''
 endfunction
 
-let s:bg_none = ' guibg=NONE ctermbg=NONE'
-let s:fg_none = ' guifg=NONE ctermfg=NONE'
-for [key_name, d_value] in items(s:palette)
-  call s:build_prim('bg', key_name)
-  call s:build_prim('fg', key_name)
-endfor
 " }}}
 
-" Formatting Options:"{{{
-" ----------------------------------------------------------------------------
-let s:none   = "NONE"
-let s:t_none = "NONE"
-let s:n      = "NONE"
-let s:c      = ",undercurl"
-let s:r      = ",reverse"
-let s:s      = ",standout"
-let s:b      = ",bold"
-let s:u      = ",underline"
-let s:i      = ",italic"
-
-exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"        ."'"
-exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_bldi = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_undr = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_undb = ' gui=NONE".s:u.s:b.  " cterm=NONE".s:u.s:b.  " term=NONE".s:u.s:b."'"
-exe "let s:fmt_undi = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_curl = ' gui=NONE".s:c.      " cterm=NONE".s:c.      " term=NONE".s:c    ."'"
-exe "let s:fmt_ital = ' gui=NONE".s:i.      " cterm=NONE".s:i.      " term=NONE".s:i    ."'"
-exe "let s:fmt_stnd = ' gui=NONE".s:s.      " cterm=NONE".s:s.      " term=NONE".s:s    ."'"
-exe "let s:fmt_revr = ' gui=NONE".s:r.      " cterm=NONE".s:r.      " term=NONE".s:r    ."'"
-exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
-"}}}
-
-
 " Vim Highlighting: (see :help highlight-groups)"{{{
-" ----------------------------------------------------------------------------
-exe "hi! Normal"        .s:fg_fg          .s:bg_bg          .s:fmt_none
-exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
-" Conceal, Cursor, CursorIM
-exe "hi! CursorColumn"  .s:fg_none        .s:bg_line        .s:fmt_none
-exe "hi! CursorLine"    .s:fg_none        .s:bg_line        .s:fmt_none
-exe "hi! CursorLineNr"  .s:fg_accent      .s:bg_line        .s:fmt_none
-exe "hi! LineNr"        .s:fg_guide       .s:bg_none        .s:fmt_none
 
-exe "hi! Directory"     .s:fg_fg_idle     .s:bg_none        .s:fmt_none
-exe "hi! DiffAdd"       .s:fg_string      .s:bg_panel       .s:fmt_none
-exe "hi! DiffChange"    .s:fg_tag         .s:bg_panel       .s:fmt_none
-exe "hi! DiffText"      .s:fg_fg          .s:bg_panel       .s:fmt_none
-exe "hi! ErrorMsg"      .s:fg_fg          .s:bg_error       .s:fmt_stnd
-exe "hi! VertSplit"     .s:fg_bg          .s:bg_none        .s:fmt_none
-exe "hi! Folded"        .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
-exe "hi! FoldColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
-exe "hi! SignColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
-"   Incsearch"
+call ayu#hi('Normal', 'fg', 'bg')
+call ayu#hi('ColorColumn', '', 'line')
+call ayu#hi('CursorColumn', '', 'line')
+call ayu#hi('CursorLine', '', 'line')
+call ayu#hi('CursorLineNr', 'accent', 'line')
+call ayu#hi('LineNr', 'guide_normal', '')
 
-exe "hi! MatchParen"    .s:fg_fg          .s:bg_bg          .s:fmt_undr
-exe "hi! ModeMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
-exe "hi! MoreMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
-exe "hi! NonText"       .s:fg_guide       .s:bg_none        .s:fmt_none
-exe "hi! Pmenu"         .s:fg_fg          .s:bg_selection   .s:fmt_none
-exe "hi! PmenuSel"      .s:fg_fg          .s:bg_selection   .s:fmt_revr
-"   PmenuSbar"
-"   PmenuThumb"
-exe "hi! Question"      .s:fg_string      .s:bg_none        .s:fmt_none
-exe "hi! Search"        .s:fg_bg          .s:bg_constant    .s:fmt_none
-exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
-exe "hi! SpellCap"      .s:fg_tag         .s:bg_none        .s:fmt_undr
-exe "hi! SpellLocal"    .s:fg_keyword     .s:bg_none        .s:fmt_undr
-exe "hi! SpellBad"      .s:fg_error       .s:bg_none        .s:fmt_undr
-exe "hi! SpellRare"     .s:fg_regexp      .s:bg_none        .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_fg          .s:bg_panel       .s:fmt_none
-exe "hi! StatusLineNC"  .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
-exe "hi! WildMenu"      .s:fg_bg          .s:bg_markup      .s:fmt_none
-exe "hi! TabLine"       .s:fg_fg          .s:bg_panel       .s:fmt_revr
-"   TabLineFill"
-"   TabLineSel"
-exe "hi! Title"         .s:fg_keyword     .s:bg_none        .s:fmt_none
-exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
-"   VisualNos"
-exe "hi! WarningMsg"    .s:fg_error       .s:bg_none        .s:fmt_none
+call ayu#hi('Directory', 'func', '')
+call ayu#hi('ErrorMsg', 'fg', 'error', 'standout')
+call ayu#hi('VertSplit', 'panel_bg', 'panel_bg')
+call ayu#hi('Folded', 'fg_idle', 'panel_bg')
+call ayu#hi('FoldColumn', '', s:sign_bg())
+call ayu#hi('SignColumn', '', s:sign_bg())
 
-" TODO LongLineWarning to use variables instead of hardcoding
-hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
-"   WildMenu"
+call ayu#hi('MatchParen', 'fg', 'bg', 'underline')
+call ayu#hi('ModeMsg', 'string', '')
+call ayu#hi('MoreMsg', 'string', '')
+call ayu#hi('NonText', 'guide_normal', '')
+call ayu#hi('Pmenu', 'fg', 'selection_inactive')
+call ayu#hi('PmenuSel', 'fg', 'selection_inactive', 'reverse')
+call ayu#hi('Question', 'string', '')
+call ayu#hi('Search', 'bg', 'constant')
+call ayu#hi('SpecialKey', 'selection_inactive', '')
+call ayu#hi('SpellCap', 'tag', '', 'underline')
+call ayu#hi('SpellLocal', 'keyword', '', 'underline')
+call ayu#hi('SpellBad', 'error', '', 'underline')
+call ayu#hi('SpellRare', 'regexp', '', 'underline')
+call ayu#hi('StatusLine', 'fg', 'panel_bg')
+call ayu#hi('StatusLineNC', 'fg_idle', 'panel_bg')
+call ayu#hi('WildMenu', 'fg', 'markup')
+call ayu#hi('TabLine', 'comment', 'panel_shadow')
+call ayu#hi('TabLineFill', 'fg', 'panel_border')
+call ayu#hi('TabLineSel', 'fg', 'bg')
+call ayu#hi('Title', 'keyword', '')
+call ayu#hi('Visual', '', 'selection_inactive')
+call ayu#hi('WarningMsg', 'warning', '')
 
 "}}}
 
 " Generic Syntax Highlighting: (see :help group-name)"{{{
-" ----------------------------------------------------------------------------
-exe "hi! Comment"         .s:fg_comment   .s:bg_none        .s:fmt_none
 
-exe "hi! Constant"        .s:fg_constant  .s:bg_none        .s:fmt_none
-exe "hi! String"          .s:fg_string    .s:bg_none        .s:fmt_none
-"   Character"
-"   Number"
-"   Boolean"
-"   Float"
+call ayu#hi('Comment', 'comment', '', s:ayu_italic_comment ? 'italic' : '')
 
-exe "hi! Identifier"      .s:fg_tag       .s:bg_none        .s:fmt_none
-exe "hi! Function"        .s:fg_function  .s:bg_none        .s:fmt_none
+call ayu#hi('Constant', 'constant', '', '')
+call ayu#hi('String', 'string', '')
 
-exe "hi! Statement"       .s:fg_keyword   .s:bg_none        .s:fmt_none
-"   Conditional"
-"   Repeat"
-"   Label"
-exe "hi! Operator"        .s:fg_operator  .s:bg_none        .s:fmt_none
-"   Keyword"
-"   Exception"
+call ayu#hi('Identifier', 'entity', '')
+call ayu#hi('Function', 'func', '')
 
-exe "hi! PreProc"         .s:fg_special   .s:bg_none        .s:fmt_none
-"   Include"
-"   Define"
-"   Macro"
-"   PreCondit"
+call ayu#hi('Statement', 'keyword', '')
+call ayu#hi('Operator', 'operator', '')
+call ayu#hi('Exception', 'markup', '')
 
-exe "hi! Type"            .s:fg_tag       .s:bg_none        .s:fmt_none
-"   StorageClass"
-exe "hi! Structure"       .s:fg_special   .s:bg_none        .s:fmt_none
-"   Typedef"
+call ayu#hi('PreProc', 'accent', '')
 
-exe "hi! Special"         .s:fg_special   .s:bg_none        .s:fmt_none
-"   SpecialChar"
-"   Tag"
-"   Delimiter"
-"   SpecialComment"
-"   Debug"
-"
-exe "hi! Underlined"      .s:fg_tag       .s:bg_none        .s:fmt_undr
+call ayu#hi('Type', 'entity', '')
+call ayu#hi('Structure', 'special', '')
 
-exe "hi! Ignore"          .s:fg_none      .s:bg_none        .s:fmt_none
+call ayu#hi('Special', 'accent', '')
+call ayu#hi('Delimiter', 'special', '')
 
-exe "hi! Error"           .s:fg_fg        .s:bg_error       .s:fmt_none
+call ayu#hi('Underlined', 'tag', '', 'underline')
 
-exe "hi! Todo"            .s:fg_markup    .s:bg_none        .s:fmt_none
+call ayu#hi('Ignore', '', '')
+
+call ayu#hi('Error', 'fg', 'error')
+
+call ayu#hi('Todo', 'markup', '')
 
 " Quickfix window highlighting
-exe "hi! qfLineNr"        .s:fg_keyword   .s:bg_none        .s:fmt_none
-"   qfFileName"
-"   qfLineNr"
-"   qfError"
+call ayu#hi('qfLineNr', 'keyword', '')
 
-exe "hi! Conceal"         .s:fg_guide     .s:bg_none        .s:fmt_none
-exe "hi! CursorLineConceal" .s:fg_guide   .s:bg_line        .s:fmt_none
-
-
-" Terminal
-" ---------
-if has("nvim")
-  let g:terminal_color_0 =  s:palette.bg[s:style]
-  let g:terminal_color_1 =  s:palette.markup[s:style]
-  let g:terminal_color_2 =  s:palette.string[s:style]
-  let g:terminal_color_3 =  s:palette.accent[s:style]
-  let g:terminal_color_4 =  s:palette.tag[s:style]
-  let g:terminal_color_5 =  s:palette.constant[s:style]
-  let g:terminal_color_6 =  s:palette.regexp[s:style]
-  let g:terminal_color_7 =  "#FFFFFF"
-  let g:terminal_color_8 =  s:palette.fg_idle[s:style]
-  let g:terminal_color_9 =  s:palette.error[s:style]
-  let g:terminal_color_10 = s:palette.string[s:style]
-  let g:terminal_color_11 = s:palette.accent[s:style]
-  let g:terminal_color_12 = s:palette.tag[s:style]
-  let g:terminal_color_13 = s:palette.constant[s:style]
-  let g:terminal_color_14 = s:palette.regexp[s:style]
-  let g:terminal_color_15 = s:palette.comment[s:style]
-  let g:terminal_color_background = g:terminal_color_0
-  let g:terminal_color_foreground = s:palette.fg[s:style]
-else
-  let g:terminal_ansi_colors =  [s:palette.bg[s:style],      s:palette.markup[s:style]]
-  let g:terminal_ansi_colors += [s:palette.string[s:style],  s:palette.accent[s:style]]
-  let g:terminal_ansi_colors += [s:palette.tag[s:style],     s:palette.constant[s:style]]
-  let g:terminal_ansi_colors += [s:palette.regexp[s:style],  "#FFFFFF"]
-  let g:terminal_ansi_colors += [s:palette.fg_idle[s:style], s:palette.error[s:style]]
-  let g:terminal_ansi_colors += [s:palette.string[s:style],  s:palette.accent[s:style]]
-  let g:terminal_ansi_colors += [s:palette.tag[s:style],     s:palette.constant[s:style]]
-  let g:terminal_ansi_colors += [s:palette.regexp[s:style],  s:palette.comment[s:style]]
-endif
-
-
-" NerdTree
-" ---------
-exe "hi! NERDTreeOpenable"          .s:fg_fg_idle     .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeClosable"          .s:fg_accent      .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeBookmarksHeader"   .s:fg_pink        .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeBookmarksLeader"   .s:fg_bg          .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeBookmarkName"      .s:fg_keyword     .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeCWD"               .s:fg_pink        .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeUp"                .s:fg_fg_idle    .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDir"               .s:fg_function   .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeFile"              .s:fg_none       .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDirSlash"          .s:fg_accent     .s:bg_none        .s:fmt_none
-
-
-" GitGutter
-" ---------
-exe "hi! GitGutterAdd"          .s:fg_string     .s:bg_none        .s:fmt_none
-exe "hi! GitGutterChange"       .s:fg_tag        .s:bg_none        .s:fmt_none
-exe "hi! GitGutterDelete"       .s:fg_markup     .s:bg_none        .s:fmt_none
-exe "hi! GitGutterChangeDelete" .s:fg_function   .s:bg_none        .s:fmt_none
+call ayu#hi('Conceal', 'comment', '')
+call ayu#hi('CursorLineConceal', 'guide_normal', 'line')
 
 "}}}
 
-"LSP
-hi LSPDiagnosticsWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsDefaultError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+" Terminal: {{{
+
+if has("nvim")
+  let g:terminal_color_0 =  ayu#get_color('bg')
+  let g:terminal_color_1 =  ayu#get_color('markup')
+  let g:terminal_color_2 =  ayu#get_color('string')
+  let g:terminal_color_3 =  ayu#get_color('accent')
+  let g:terminal_color_4 =  ayu#get_color('tag')
+  let g:terminal_color_5 =  ayu#get_color('constant')
+  let g:terminal_color_6 =  ayu#get_color('regexp')
+  let g:terminal_color_7 =  "#FFFFFF"
+  let g:terminal_color_8 =  ayu#get_color('fg_idle')
+  let g:terminal_color_9 =  ayu#get_color('error')
+  let g:terminal_color_10 = ayu#get_color('string')
+  let g:terminal_color_11 = ayu#get_color('accent')
+  let g:terminal_color_12 = ayu#get_color('tag')
+  let g:terminal_color_13 = ayu#get_color('constant')
+  let g:terminal_color_14 = ayu#get_color('regexp')
+  let g:terminal_color_15 = ayu#get_color('comment')
+  let g:terminal_color_background = g:terminal_color_0
+  let g:terminal_color_foreground = ayu#get_color('fg')
+else
+  let g:terminal_ansi_colors =  [ayu#get_color('bg'),        ayu#get_color('markup')]
+  let g:terminal_ansi_colors += [ayu#get_color('string'),  ayu#get_color('accent')]
+  let g:terminal_ansi_colors += [ayu#get_color('tag'),     ayu#get_color('constant')]
+  let g:terminal_ansi_colors += [ayu#get_color('regexp'),  "#FFFFFF"]
+  let g:terminal_ansi_colors += [ayu#get_color('fg_idle'), ayu#get_color('error')]
+  let g:terminal_ansi_colors += [ayu#get_color('string'),  ayu#get_color('accent')]
+  let g:terminal_ansi_colors += [ayu#get_color('tag'),     ayu#get_color('constant')]
+  let g:terminal_ansi_colors += [ayu#get_color('regexp'),  ayu#get_color('comment')]
+endif
+
+" }}}
+
+" Diff Syntax Highlighting:"{{{
+call ayu#hi('DiffAdd', 'vcs_added', 'guide_normal')
+call ayu#hi('DiffAdded', 'vcs_added', '')
+call ayu#hi('DiffChange', 'vcs_modified', 'guide_normal')
+call ayu#hi('DiffDelete', 'vcs_removed', 'guide_normal')
+call ayu#hi('DiffRemoved', 'vcs_removed', '')
+call ayu#hi('DiffText', 'vcs_modified', 'guide_active')
+"}}}
+
+" Netrw:" {{{
+call ayu#hi('netrwClassify', 'special', '')
+" }}}
+
+" GitGutter:" {{{
+call ayu#hi('GitGutterAdd', 'vcs_added', s:sign_bg())
+call ayu#hi('GitGutterChange', 'vcs_modified', s:sign_bg())
+call ayu#hi('GitGutterDelete', 'vcs_removed', s:sign_bg())
+call ayu#hi('GitGutterChangeDelete', 'vcs_modified', s:sign_bg(), 'underline')
+" }}}
+
+" Signify:" {{{
+call ayu#hi('SignifySignAdd', 'vcs_added', s:sign_bg())
+call ayu#hi('SignifySignChange', 'vcs_modified', s:sign_bg())
+call ayu#hi('SignifySignDelete', 'vcs_removed', s:sign_bg())
+call ayu#hi('SignifySignChangeDelete', 'vcs_modified', s:sign_bg(), 'underline')
+" }}}
+
+" NERDTree:" {{{
+call ayu#hi('NERDTreeOpenable', 'fg_idle', '')
+call ayu#hi('NERDTreeClosable', 'accent', '')
+call ayu#hi('NERDTreeUp', 'fg_idle', '')
+call ayu#hi('NERDTreeDir', 'func', '')
+call ayu#hi('NERDTreeFile', '', '')
+call ayu#hi('NERDTreeDirSlash', 'special', '')
+" }}}
+
+" Telescope:"{{{
+call ayu#hi('TelescopeMatching', 'accent', '')
+" }}}
+
+" Neovim Builtin LSP:" {{{
+call ayu#hi('LspDiagnosticsDefaultError', 'error', '')
+call ayu#hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
+call ayu#hi('LspDiagnosticsSignError', 'error', s:sign_bg())
+
+call ayu#hi('LspDiagnosticsDefaultWarning', 'warning', '')
+call ayu#hi('LspDiagnosticsUnderlineWarning', 'warning', '', 'underline')
+call ayu#hi('LspDiagnosticsSignWarning', 'warning', s:sign_bg())
+
+call ayu#hi('LspDiagnosticsVirtualTextHint', 'fg_idle', '')
+call ayu#hi('LspDiagnosticsSignHint', 'fg', s:sign_bg())
+
+call ayu#hi('LspDiagnosticsVirtualTextInformation', 'fg_idle', '')
+call ayu#hi('LspDiagnosticsSignInformation', 'fg', s:sign_bg())
+" }}}
+
+" YATS:" {{{
+
+call ayu#hi('typescriptDecorator', 'markup', '')
+call ayu#hi('typescriptImport', 'accent', '')
+call ayu#hi('typescriptExport', 'accent', '')
+call ayu#hi('typescriptIdentifier', 'tag', '', 'italic')
+call ayu#hi('typescriptAssign', 'operator', '')
+call ayu#hi('typescriptBinaryOp', 'operator', '')
+call ayu#hi('typescriptTernaryOp', 'operator', '')
+call ayu#hi('typescriptModule', 'keyword', '')
+call ayu#hi('typescriptTypeBrackets', 'special', '')
+call ayu#hi('typescriptClassName', 'tag', '')
+call ayu#hi('typescriptAmbientDeclaration', 'keyword', '')
+call ayu#hi('typescriptRegexpString', 'regexp', '')
+call ayu#hi('typescriptTry', 'markup', '')
+call ayu#hi('typescriptExceptions', 'markup', '')
+call ayu#hi('typescriptDebugger', 'markup', '', 'bold')
+call ayu#hi('typescriptParens', 'special', '')
+"call ayu#hi('typescriptVariable', 'keyword', '')
+call ayu#hi('typescriptObjectLabel', 'tag', '')
+call ayu#hi('typescriptOperator', 'keyword', '')
+call ayu#hi('typescriptArrowFunc', 'operator', '')
+call ayu#hi('typescriptBraces', 'special', '')
+call ayu#hi('typescriptGlobal', 'accent', '')
+
+" Prop
+call ayu#hi('typescriptDOMFormProp', 'entity', '')
+call ayu#hi('typescriptDOMEventProp', 'entity', '')
+call ayu#hi('typescriptBOMWindowProp', 'accent', '')
+
+" Method
+call ayu#hi('typescriptDateMethod', 'func', '')
+call ayu#hi('typescriptBlobMethod', 'func', '')
+call ayu#hi('typescriptArrayMethod', 'func', '')
+call ayu#hi('typescriptArrayStaticMethod', 'func', '')
+call ayu#hi('typescriptStringMethod', 'func', '')
+call ayu#hi('typescriptPaymentMethod', 'func', '')
+call ayu#hi('typescriptHeadersMethod', 'func', '')
+call ayu#hi('typescriptCacheMethod', 'func', '')
+call ayu#hi('typescriptDOMEventMethod', 'func', '')
+call ayu#hi('typescriptDOMEventTargetMethod', 'func', '')
+call ayu#hi('typescriptBOMWindowMethod', 'func', '')
+call ayu#hi('typescriptDOMStorageMethod', 'func', '')
+call ayu#hi('typescriptPromiseMethod', 'func', '')
+call ayu#hi('typescriptGlobalMethod', 'func', '')
+call ayu#hi('typescriptFunctionMethod', 'func', '')
+call ayu#hi('typescriptBOMLocationMethod', 'func', '')
+
+" }}}
+
+" Javascript:" {{{
+
+call ayu#hi('jsNull', 'constant', '')
+call ayu#hi('jsThis', 'constant', '', 'italic')
+
+call ayu#hi('jsBrackets', 'special', '')
+call ayu#hi('jsDot', 'special', '')
+call ayu#hi('jsParens', 'special', '')
+call ayu#hi('jsFuncParens', 'special', '')
+call ayu#hi('jsFuncBraces', 'special', '')
+call ayu#hi('jsIfElseBraces', 'special', '')
+
+call ayu#hi('jsObjectKey', 'tag', '')
+call ayu#hi('jsObjectProp', 'tag', '')
+
+call ayu#hi('jsRegexpString', 'regexp', '')
+
+" }}}
+
+" TreeSitter:" {{{
+
+call ayu#hi('TSInclude', 'accent', '')
+
+call ayu#hi('TSParameter', 'special', '')
+
+call ayu#hi('TSField', 'tag', '')
+call ayu#hi('TSProperty', 'tag', '')
+
+call ayu#hi('TSAttribute', 'markup', '')
+
+call ayu#hi('TSVariableBuiltin', 'constant', '', 'italic')
+call ayu#hi('TSConstBuiltin', 'constant', '')
+
+call ayu#hi('TSStringRegex', 'regexp', '')
+
+call ayu#hi('TSFuncMacro', 'func', '')
+
+" }}}
+
+" Fugitive:" {{{
+call ayu#hi('fugitiveUntrackedHeading', 'accent', '')
+call ayu#hi('fugitiveUnstagedHeading', 'accent', '')
+call ayu#hi('fugitiveStagedHeading', 'accent', '')
+call ayu#hi('fugitiveHeading', 'accent', '')
+" }}}
+
+" Git Commit:" {{{
+call ayu#hi('gitcommitBranch', 'func', '')
+call ayu#hi('gitcommitHeader', 'accent', '')
+call ayu#hi('gitcommitSummary', 'fg', '')
+call ayu#hi('gitcommitOverflow', 'markup', '')
+" }}}
+
+" Startify:" {{{
+call ayu#hi('StartifyFile', 'fg', '')
+" }}}
+
+" Vim:" {{{
+call ayu#hi('vimUserFunc', 'func', '')
+hi! link vimVar NONE
+call ayu#hi('vimFunction', 'func', '')
+call ayu#hi('vimIsCommand', '', '')
+" }}}
+
+" XML:" {{{
+
+call ayu#hi('xmlTag', 'special', '')
+call ayu#hi('xmlTagName', 'keyword', '')
+call ayu#hi('xmlEntity', 'tag', '')
+call ayu#hi('xmlEntityPunct', 'operator', '')
+call ayu#hi('xmlEqual', 'operator', '')
+
+" }}}
+
+" INI:" {{{
+call ayu#hi('dosiniHeader', 'keyword', '')
+" }}}
+
+" Pandoc:" {{{
+
+call ayu#hi('pandocPipeTableHeader', 'keyword', '')
+call ayu#hi('pandocPipeTableDelims', 'keyword', '')
+call ayu#hi('pandocDelimitedCodeBlock', 'accent', '')
+
+" }}}
+
+" Shell:" {{{
+
+call ayu#hi('shTestOpr', 'operator', '')
+call ayu#hi('shOption', 'special', '')
+call ayu#hi('shQuote', 'string', '')
+
+" }}}
+
+" Haskell:" {{{
+
+call ayu#hi('haskellDeclKeyword', 'keyword', '')
+call ayu#hi('haskellLet', 'keyword', '')
+call ayu#hi('haskellWhere', 'keyword', '')
+call ayu#hi('haskellIdentifier', 'tag', '')
+
+" }}}
+
+" PHP:" {{{
+
+call ayu#hi('phpDefine', 'keyword', '')
+call ayu#hi('phpStructure', 'keyword', '')
+
+" }}}
+
+" Ruby:" {{{
+
+call ayu#hi('rubyModule', 'keyword', '')
+call ayu#hi('rubyRegexp', 'regexp', '')
+call ayu#hi('rubyRegexpDelimiter', 'regexp', '')
+call ayu#hi('rubyStringDelimiter', 'string', '')
+
+" }}}
 
 "Whichkey
 hi WhichKeySeparator guifg=#303741
@@ -271,31 +370,3 @@ hi link DashboardHeader Comment
 hi DashboardCenter guifg = #F29718
 hi DashboardShortcut guifg = #D4BFFF
 hi link DashboardFooter Comment 
-
-" Diff Syntax Highlighting:"{{{
-" ----------------------------------------------------------------------------
-" Diff
-"   diffOldFile
-"   diffNewFile
-"   diffFile
-"   diffOnly
-"   diffIdentical
-"   diffDiffer
-"   diffBDiffer
-"   diffIsA
-"   diffNoEOL
-"   diffCommon
-hi! link diffRemoved Constant
-"   diffChanged
-hi! link diffAdded String
-"   diffLine
-"   diffSubname
-"   diffComment
-
-"}}}
-"
-" This is needed for some reason: {{{
-
-let &background = s:style
-
-" }}}
