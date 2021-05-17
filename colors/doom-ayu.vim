@@ -267,10 +267,10 @@ hi WhichKeyGroup guifg=#d4bfff
 
 
 "Dashboard
-hi link DashboardHeader s:palette.comment
-hi link DashboardCenter s:palette.accent
-hi link DashboardShortcut s:palette.constant 
-hi link DashboardFooter s:palette.comment 
+hi link DashboardHeader Comment
+hi link DashboardCenter guifg = #F29718
+hi link DashboardShortcut Constant 
+hi link DashboardFooter Comment 
 
 " Diff Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------
