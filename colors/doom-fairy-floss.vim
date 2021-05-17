@@ -117,7 +117,7 @@ hi WildMenu guifg=bg guibg=#c2ffdf gui=bold
 
 hi WhichKeySeparator guifg=#ae9414
 hi WhichKeyDesc guifg=#3c5065
-hi WhichKeyValue guibg=#343145
+hi WhichKeyFloat guibg=#343145
 
 " Indent Lines
 hi IndentBlanklineChar guifg=#3f444a guibg=NONE gui=NONE
