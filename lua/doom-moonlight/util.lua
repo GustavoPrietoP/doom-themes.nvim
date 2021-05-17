@@ -16,7 +16,7 @@ end
 
 -- Only define Moonlight if it's the active colorshceme
 function util.onColorScheme()
-  if vim.g.colors_name ~= "moonlight" then
+  if vim.g.colors_name ~= "doom-moonlight" then
     vim.cmd [[autocmd! Moonlight]]
     vim.cmd [[augroup! Moonlight]]
   end
@@ -26,7 +26,7 @@ end
 util.contrast = function ()
     vim.cmd [[augroup Moonlight]]
     vim.cmd [[  autocmd!]]
-    vim.cmd [[  autocmd ColorScheme * lua require("moonlight.util").onColorScheme()]]
+    vim.cmd [[  autocmd ColorScheme * lua require("doom-moonlight.util").onColorScheme()]]
     vim.cmd [[  autocmd TermOpen * setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
     vim.cmd [[  autocmd FileType packer setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
     vim.cmd [[  autocmd FileType qf setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]]
@@ -40,7 +40,7 @@ function util.load()
     if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
     vim.o.background = "dark"
     vim.o.termguicolors = true
-    vim.g.colors_name = "moonlight"
+    vim.g.colors_name = "doom-moonlight"
 
     -- Load plugins, treesitter and lsp async
     local async
