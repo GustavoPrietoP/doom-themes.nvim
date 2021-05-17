@@ -11,7 +11,7 @@ if exists('syntax on')
     syntax reset
 endif
 
-let g:colors_name='challenger_deep'
+let g:colors_name='doom-challenger-deep'
 set background=dark
 
 
@@ -163,8 +163,8 @@ call s:h("IncSearch",     {"bg": s:red, "fg": s:clouds})
 call s:h("Search",        {"bg": s:bg_dark})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "gui": "bold", "cterm": "bold"})
 hi! link ModeMsg MoreMsg
-call s:h("LineNr",        {"fg": s:dark_asphalt, "bg": s:bg_subtle})
-call s:h("CursorLineNr",  {"bg": s:bg_subtle, "fg": s:blue, "gui": "bold"})
+call s:h("LineNr",        {"fg": s:medium_gray, "bg": s:bg})
+call s:h("CursorLineNr",  {"bg": s:bg_subtle, "fg": s:white})
 call s:h("Question",      {"fg": s:red})
 call s:h("StatusLine",    {"bg": s:bg_dark})
 call s:h("Conceal",       {"fg": s:norm})
@@ -180,7 +180,7 @@ call s:h("DiffAdd",       {"fg": s:green})
 call s:h("DiffDelete",    {"fg": s:red})
 call s:h("DiffChange",    {"fg": s:dark_yellow})
 call s:h("DiffText",      {"fg": s:dark_blue})
-call s:h("SignColumn",    {"fg": s:green})
+call s:h("SignColumn",    {"fg": s:bg})
 
 if has("gui_running")
   call s:h("SpellBad",    {"gui": "underline", "sp": s:dark_red})
@@ -330,11 +330,13 @@ hi LspDiagnosticsUnderlineHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE 
 
 "Whichkey
 hi WhichKeySeparator guifg=#37374f
-hi WhichKeyDesc guifg=#aaffe4
+hi WhichKeyDesc  guifg=#aaffe4
 hi WhichKeyValue guifg=#aaffe4
 hi WhichKeyFloat guibg=#12101f
-hi WhichKeyGroup guifg= #76b1ce
+hi WhichKeyGroup guifg=#8161e3
 
+"Buffer
+hi BufferTabpageFill guibg=s:subtle_black
 
 "nvim terminal colors
 let g:terminal_color_0 = s:bg_dark.gui
