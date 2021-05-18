@@ -595,7 +595,7 @@ endif
 hi! link NonText GruvboxBg2
 hi! link SpecialKey GruvboxFg4
 
-call s:HL('Visual',    s:none,  s:gb.bg3, s:invert_selection)
+call s:HL('Visual',    s:none,  s:gb.bg3)
 hi! link VisualNOS Visual
 
 call s:HL('Search', s:hls_highlight, s:gb.bg0, s:inverse)
@@ -638,7 +638,7 @@ hi! link WarningMsg GruvboxRedBold
 call s:HL('LineNr', s:gb.bg4, s:number_column)
 
 " Column where signs are displayed
-call s:HL('SignColumn', s:none, s:sign_column)
+call s:HL('SignColumn', s:none, s:gb.bg0)
 
 " Line used for closed folds
 call s:HL('Folded', s:gb.gray, s:gb.bg1, s:italic)
@@ -1636,6 +1636,20 @@ hi! link ocamlInfixOpKeyword GruvboxRed
 hi! link ocamlConstructor GruvboxOrange
 
 " }}}
+
+
+
+hi DashboardHeader guifg = #928374
+hi DashboardCenter guifg = #cc241d
+hi DashboardShortcut guifg = #b16286
+hi DashboardFooter guifg = #928374
+
+hi WhichKey guifg=#b8bb26
+hi WhichKeySeparator guifg=#f9f5d7
+hi WhichKeyDesc guifg=#f9f5d7
+hi WhichKeyValue guifg=#7c6f64
+hi WhichKeyFloat guibg=#1d2021
+hi WhichKeyGroup guifg=#fbf1c7
 
 
 " Functions -------------------------------------------------------------------
