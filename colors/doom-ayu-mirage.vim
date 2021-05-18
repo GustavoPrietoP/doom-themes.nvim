@@ -260,6 +260,12 @@ hi! LspDiagnosticsUnderlineInformation guifg=#88c0d0 ctermfg=110 guibg=NONE cter
 hi! LspDiagnosticsUnderlineHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
 " WhichKey
+hi! WhichKey guifg=#BBE67E
+hi! WhichKeySeparator guifg=#525254
+hi! WhichKeyDesc guifg=#246b9c
+hi! WhichKeyValue guifg=#246b9c
+hi! WhichKeyFloat guibg=#222222
+hi! WhichKeyGroup guifg=#C5A3FF
 hi! WhichKeySeparator guifg=#1f2430
 hi! WhichKeyDesc guifg=#539ed2
 hi! WhichKeyValue guifg=#539ed2
