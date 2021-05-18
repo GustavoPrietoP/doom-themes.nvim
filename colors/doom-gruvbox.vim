@@ -1640,7 +1640,7 @@ hi! link ocamlConstructor GruvboxOrange
 
 
 hi DashboardHeader guifg = #928374
-hi DashboardCenter guifg = #cc241d
+hi DashboardCenter guifg = #fb4934
 hi DashboardShortcut guifg = #b16286
 hi DashboardFooter guifg = #928374
 
