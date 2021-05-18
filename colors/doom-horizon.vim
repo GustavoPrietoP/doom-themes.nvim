@@ -27,7 +27,7 @@ hi! CursorLine cterm=NONE gui=NONE ctermbg=235 guibg=#2e303e
 hi! Comment cterm=italic gui=italic ctermfg=242 guifg=#6c6f93
 hi! Constant cterm=NONE gui=NONE ctermfg=209 guifg=#f09483
 hi! Cursor cterm=NONE gui=NONE ctermbg=242 ctermfg=242 guibg=#6c6f93 guifg=#6c6f93
-hi! CursorLineNr cterm=NONE gui=NONE ctermbg=235 ctermfg=251 guibg=#2a3158 guifg=#cdd1e6
+hi! CursorLineNr cterm=NONE gui=NONE ctermbg=235 ctermfg=251 guibg=#2e303e guifg=#cdd1e6
 hi! Delimiter cterm=NONE gui=NONE ctermfg=44 guifg=#21bfc2
 hi! DiffAdd cterm=NONE gui=NONE ctermbg=238 ctermfg=7 guibg=#45493e guifg=#c0c5b9
 hi! DiffChange cterm=NONE gui=NONE ctermbg=23 ctermfg=241 guibg=#384851 guifg=#b3c3cc
@@ -37,7 +37,7 @@ hi! Directory cterm=NONE gui=NONE ctermfg=203 guifg=#e95678
 hi! Error cterm=NONE gui=NONE ctermbg=233 ctermfg=203 guibg=#1c1e26 guifg=#eC6a88
 hi! ErrorMsg cterm=NONE gui=NONE ctermbg=233 ctermfg=203 guibg=#1c1e26 guifg=#ec6a88
 hi! WarningMsg cterm=NONE gui=NONE ctermbg=233 ctermfg=203 guibg=#1c1e26 guifg=#eC6a88
-hi! EndOfBuffer cterm=NONE gui=NONE ctermbg=233 ctermfg=236 guibg=#1c1e26 guifg=#2e303e
+hi! EndOfBuffer cterm=NONE gui=NONE ctermbg=233 ctermfg=236 guibg=#1c1e26 guifg=#1c1e26
 hi! NonText cterm=NONE gui=NONE ctermbg=233 ctermfg=233 guifg=#2e303e guibg=#1c1e26
 hi! SpecialKey cterm=NONE gui=NONE ctermbg=203 ctermfg=235 guibg=#e95678 guifg=#2e303e
 hi! Folded cterm=NONE gui=NONE ctermbg=233 ctermfg=242 guibg=#1c1e26 guifg=#6c6f93
@@ -46,12 +46,12 @@ hi! Function cterm=NONE gui=NONE ctermfg=37 guifg=#25b0bc
 hi! Identifier cterm=italic gui=italic ctermfg=203 guifg=#e95678
 hi! Statement cterm=NONE gui=NONE ctermfg=171 guifg=#b877db
 hi! Include cterm=NONE gui=NONE ctermfg=171 guifg=#b877db
-hi! LineNr cterm=NONE gui=NONE ctermbg=233 ctermfg=239 guibg=#1c1e26 guifg=#6c6f93
+hi! LineNr cterm=NONE gui=NONE ctermbg=233 ctermfg=239 guibg= #1c1e26 guifg=#2e303e
 hi! MatchParen cterm=NONE gui=NONE ctermbg=237 ctermfg=255 guibg=#3e445e guifg=#ffffff
 hi! MoreMsg cterm=NONE gui=NONE ctermfg=48 guifg=#09f7a0
 hi! Normal cterm=NONE gui=NONE ctermbg=233 ctermfg=252 guibg=#1c1e26 guifg=#d5d8da
 hi! Operator cterm=NONE gui=NONE ctermfg=37 guifg=#25b0bc
-hi! Pmenu cterm=NONE gui=NONE ctermbg=233 ctermfg=252 guifg=#1c1e26 guibg=#d5d8da
+hi! Pmenu cterm=NONE gui=NONE ctermbg=233 ctermfg=252 guifg=#d5d8da guibg=#1c1e26
 hi! PmenuSbar cterm=NONE gui=NONE ctermbg=236 guibg=#3d425b
 hi! PmenuSel cterm=NONE gui=NONE ctermbg=240 ctermfg=255 guibg=#5b6389 guifg=#eff0f4
 hi! PmenuThumb cterm=NONE gui=NONE ctermbg=233 guibg=#1c1e26
@@ -79,7 +79,7 @@ hi! Title cterm=bold gui=bold ctermfg=37 guifg=#25b0bc
 hi! Todo cterm=inverse,bold gui=inverse,bold ctermbg=59 ctermfg=48 guibg=#45493e guifg=#09f7a0
 hi! Type cterm=NONE gui=NONE ctermfg=209 guifg=#fab795
 hi! Underlined cterm=underline gui=underline ctermfg=37 guifg=#25b0bc
-hi! VertSplit cterm=bold gui=bold ctermbg=233 ctermfg=233 guibg=#0f1117 guifg=#0f1117
+hi! VertSplit cterm=bold gui=bold ctermbg=233 ctermfg=233 guibg=NONE guifg=#0f1117
 hi! Visual cterm=NONE gui=NONE ctermbg=236 guibg=#272c42
 hi! WildMenu cterm=NONE gui=NONE ctermbg=255 ctermfg=234 guibg=#d4d5db guifg=#17171b
 hi! diffAdded cterm=NONE gui=NONE ctermfg=48 guifg=#09f7a0
