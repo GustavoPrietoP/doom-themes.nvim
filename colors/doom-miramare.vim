@@ -1774,14 +1774,21 @@ endif
 " }}}
 
 " LSP
-hi LSPDiagnosticsWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsDefaultError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+
+hi!LspDiagnosticsSignError guifg=#bf616a
+hi!LspDiagnosticsUnderlineError guifg=#bf616a
+
+hi!LspDiagnosticsDefaultWarning guifg = #ebcb8b 
+hi!LspDiagnosticsSignWarning guifg = #ebcb8b
+hi!LspDiagnosticsUnderlineWarning guifg = #ebcb8b
+
+hi!LspDiagnosticsDefaultInformation guifg = #88c0d0
+hi!LspDiagnosticsSignInformation guifg = #88c0d0
+hi!LspDiagnosticsUnderlineInformation guifg = #88c0d0
+
+hi!LspDiagnosticsDefaultHint guifg = #5e81ac
+hi!LspDiagnosticsSignHint guifg = #5e81ac
+hi!LspDiagnosticsUnderlineHint guifg = #5e81ac
 
 " Dashboard
 
