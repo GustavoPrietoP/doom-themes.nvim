@@ -1775,17 +1775,17 @@ endif
 
 " LSP
 
-hi!LspDiagnosticsSignError guifg=#bf616a gui = underline
+hi!LspDiagnosticsSignError guifg=#bf616a
 hi!LspDiagnosticsUnderlineError guifg=#bf616a gui = underline
-hi!LspDiagnosticsDefaultWarning guifg = #ebcb8b gui = underline
-hi!LspDiagnosticsSignWarning guifg = #ebcb8b gui = underline
+hi!LspDiagnosticsDefaultWarning guifg = #ebcb8b
+hi!LspDiagnosticsSignWarning guifg = #ebcb8b 
 hi!LspDiagnosticsUnderlineWarning guifg = #ebcb8b  gui = underline
-hi!LspDiagnosticsDefaultInformation guifg = #88c0d0 gui = underline
-hi!LspDiagnosticsSignInformation guifg = #88c0d0 gui = underline
+hi!LspDiagnosticsDefaultInformation guifg = #88c0d0
+hi!LspDiagnosticsSignInformation guifg = #88c0d0
 hi!LspDiagnosticsUnderlineInformation guifg = #88c0d0 gui = underline
 
-hi!LspDiagnosticsDefaultHint guifg = #5e81ac gui = underline
-hi!LspDiagnosticsSignHint guifg = #5e81ac gui = underline
+hi!LspDiagnosticsDefaultHint guifg = #5e81ac
+hi!LspDiagnosticsSignHint guifg = #5e81ac
 hi!LspDiagnosticsUnderlineHint guifg = #5e81ac gui = underline
 
 " Dashboard
