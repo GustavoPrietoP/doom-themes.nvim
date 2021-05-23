@@ -1775,7 +1775,7 @@ endif
 
 " LSP
 
-hi!LspDiagnosticsSignError guifg=#bf616a gui = underlines
+hi!LspDiagnosticsSignError guifg=#bf616a gui = underline
 hi!LspDiagnosticsUnderlineError guifg=#bf616a gui = underline
 hi!LspDiagnosticsDefaultWarning guifg = #ebcb8b gui = underline
 hi!LspDiagnosticsSignWarning guifg = #ebcb8b gui = underline
