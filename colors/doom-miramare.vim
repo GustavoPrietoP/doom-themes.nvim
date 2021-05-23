@@ -198,8 +198,8 @@ call s:HL('TabLine', s:palette.fg, s:palette.bg4)
 call s:HL('TabLineFill', s:palette.grey, s:palette.bg1)
 call s:HL('TabLineSel', s:palette.fg, s:palette.bg1)
 call s:HL('VertSplit', s:palette.bg4, s:palette.none)
-call s:HL('Visual', s:palette.bg0, s:palette.gold)
-call s:HL('VisualNOS', s:palette.bg0, s:palette.gold, 'underline')
+call s:HL('Visual', s:palette.bg3, s:palette.gold)
+call s:HL('VisualNOS', s:palette.bg3, s:palette.gold, 'underline')
 call s:HL('CursorIM', s:palette.none, s:palette.fg)
 call s:HL('ToolbarLine', s:palette.none, s:palette.grey)
 call s:HL('ToolbarButton', s:palette.fg, s:palette.bg0, 'bold')
@@ -1775,20 +1775,18 @@ endif
 
 " LSP
 
-hi!LspDiagnosticsSignError guifg=#bf616a
-hi!LspDiagnosticsUnderlineError guifg=#bf616a
+hi!LspDiagnosticsSignError guifg=#bf616a gui = underline
+hi!LspDiagnosticsUnderlineError guifg=#bf616a gui = underline
+hi!LspDiagnosticsDefaultWarning guifg = #ebcb8b gui = underline
+hi!LspDiagnosticsSignWarning guifg = #ebcb8b gui = underline
+hi!LspDiagnosticsUnderlineWarning guifg = #ebcb8b  gui = underline
+hi!LspDiagnosticsDefaultInformation guifg = #88c0d0 gui = underline
+hi!LspDiagnosticsSignInformation guifg = #88c0d0 gui = underline
+hi!LspDiagnosticsUnderlineInformation guifg = #88c0d0 gui = underline
 
-hi!LspDiagnosticsDefaultWarning guifg = #ebcb8b 
-hi!LspDiagnosticsSignWarning guifg = #ebcb8b
-hi!LspDiagnosticsUnderlineWarning guifg = #ebcb8b
-
-hi!LspDiagnosticsDefaultInformation guifg = #88c0d0
-hi!LspDiagnosticsSignInformation guifg = #88c0d0
-hi!LspDiagnosticsUnderlineInformation guifg = #88c0d0
-
-hi!LspDiagnosticsDefaultHint guifg = #5e81ac
-hi!LspDiagnosticsSignHint guifg = #5e81ac
-hi!LspDiagnosticsUnderlineHint guifg = #5e81ac
+hi!LspDiagnosticsDefaultHint guifg = #5e81ac gui = underline
+hi!LspDiagnosticsSignHint guifg = #5e81ac gui = underline
+hi!LspDiagnosticsUnderlineHint guifg = #5e81ac gui = underline
 
 " Dashboard
 
