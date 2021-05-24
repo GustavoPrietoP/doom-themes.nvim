@@ -1780,7 +1780,7 @@ hi!LspDiagnosticsUnderlineError guifg=#bf616a gui = underline
 hi!LspDiagnosticsDefaultWarning guifg = #ebcb8b
 hi!LspDiagnosticsSignWarning guifg = #ebcb8b 
 hi!LspDiagnosticsUnderlineWarning guifg = #ebcb8b  gui = underline
-hi!LspDiagnosticsDefaultInformation guifg = #88c0d0
+hi!LspDiagnosticsDefaultInformation
 hi!LspDiagnosticsSignInformation guifg = #88c0d0
 hi!LspDiagnosticsUnderlineInformation guifg = #88c0d0 gui = underline
 
