@@ -1782,10 +1782,15 @@ hi!LspDiagnosticsSignWarning guifg = #ebcb8b
 hi!LspDiagnosticsUnderlineWarning guifg = #ebcb8b  gui = underline
 hi!LspDiagnosticsSignInformation guifg = #88c0d0
 hi!LspDiagnosticsUnderlineInformation guifg = #88c0d0 gui = underline
-
 hi!LspDiagnosticsDefaultHint guifg = #5e81ac
 hi!LspDiagnosticsSignHint guifg = #5e81ac
-hi!LspDiagnosticsUnderlineHint guifg = #5e81ac gui = underline
+
+highlight nCursor guibg=#e68183
+set guicursor=n-v-c-i:block-nCursor
+set guicursor+=i:ver25-nCursor
+set guicursor+=o:hor50-nCursor
+
+"hi!LspDiagnosticsUnderlineHint guifg = #5e81ac gui = underline
 
 " Dashboard
 

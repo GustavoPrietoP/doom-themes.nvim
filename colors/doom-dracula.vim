@@ -209,24 +209,156 @@ hi diffNewFile guifg=#50fa7b ctermfg=84 guibg=NONE ctermbg=NONE gui=NONE cterm=N
 hi diffOldFile guifg=#ff5555 ctermfg=203 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi debugPc guifg=NONE ctermfg=NONE guibg=#8be9fd ctermbg=117 gui=NONE cterm=NONE
 hi debugBreakpoint guifg=#ff5555 ctermfg=203 guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
-hi LSPDiagnosticsWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsDefaultError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi LspDiagnosticsUnderlineHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+
+"hi LSPDiagnosticsWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+"hi LspDiagnosticsDefaultError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+"hi LspDiagnosticsInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+"hi LspDiagnosticsHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+"hi LspDiagnosticsUnderlineWarning guifg=#ebcb8b ctermfg=222 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+"hi LspDiagnosticsUnderlineError guifg=#bf616a ctermfg=131 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+"hi LspDiagnosticsUnderlineInformation guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+"hi LspDiagnosticsUnderlineHint guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+
 hi WhichKeySeparator guifg=#565761
 hi WhichKeyDesc guifg=#539ed2
 hi WhichKeyValue guifg=#539ed2
 hi WhichKeyFloat guibg=#1f2129
 hi WhichKeyGroup guifg=#C5A3FF
+
 hi DashboardHeader guifg = #6272a4
 hi DashboardCenter guifg = #ff79c6
 hi DashboardShortcut guifg = #8be9fd
 hi DashboardFooter guifg = #6272a4
 
-if &filetype == 'dashboard'
-    hi Normal guifg=#f8f8f2 ctermfg=255 guibg=#1f2129 ctermbg=236 gui=NONE cterm=NONE
-endif
+hi NvimTreeRootFolder guifg = #BD93F9
+hi NvimTreeFolderIcon guifg = #BD93F9
+hi NvimTreeEmptyFolderName guifg = #6272A4
+hi NvimTreeSpecialFile guifg = #FF79C6
+
+
+
+lua << EOF
+local colors = {
+	bg = "#282A36",
+	fg = "#F8F8F2",
+	selection = "#44475A",
+	comment = "#6272A4",
+	red = "#FF5555",
+	orange = "#FFB86C",
+	yellow = "#F1FA8C",
+	green = "#50fa7b",
+	purple = "#BD93F9",
+	cyan = "#8BE9FD",
+	pink = "#FF79C6",
+	bright_red = "#FF6E6E",
+	bright_green = "#69FF94",
+	bright_yellow = "#FFFFA5",
+	bright_blue = "#D6ACFF",
+	bright_magenta = "#FF92DF",
+	bright_cyan = "#A4FFFF",
+	bright_white = "#FFFFFF",
+	menu = "#21222C",
+	visual = "#3E4452",
+	gutter_fg = "#4B5263",
+	nontext = "#3B4048",
+	white = "#ABB2BF",
+	black = "#191A21"
+}
+
+local highlight = function(group, fg, bg, attr, sp)
+    fg = fg and "guifg=" .. fg or "guifg=NONE"
+    bg = bg and "guibg=" .. bg or "guibg=NONE"
+    attr = attr and "gui=" ..attr or "gui=NONE"
+	sp = sp and "guisp=" .. sp or ""
+
+    vim.api.nvim_command("highlight " .. group .. " ".. fg .. " " .. bg .. " ".. attr .. " " .. sp)
+end
+
+highlight("NvimTreeRootFolder", colors.purple, nil, 'bold', nil)
+highlight("NvimTreeNormal ", colors.bright_blue, nil, nil, nil)
+highlight("NvimTreeGitDirty", colors.yellow, nil, nil, nil)
+highlight("NvimTreeGitNew", colors.bright_green, nil, nil, nil)
+highlight("NvimTreeImageFile", colors.pink, nil, nil, nil)
+highlight("NvimTreeFolderIcon", colors.purple, nil, nil, nil)
+highlight("NvimTreeIndentMarker", colors.nontext, nil, nil, nil)
+highlight("NvimTreeEmptyFolderName", colors.comment, nil, nil, nil)
+highlight("NvimTreeFolderName", colors.bright_blue, nil, nil, nil)
+highlight("NvimTreeSpecialFile", colors.pink, nil, 'underline', nil)
+
+highlight('LspDiagnosticsDefaultError', colors.red, nil, nil, nil)
+highlight('LspDiagnosticsDefaultWarning', colors.yellow, nil, nil, nil)
+highlight('LspDiagnosticsDefaultInformation', colors.cyan, nil, nil, nil)
+highlight('LspDiagnosticsDefaultHint', colors.cyan, nil, nil, nil)
+highlight('LspDiagnosticsUnderlineError', colors.red, nil, 'undercurl', nil)
+highlight('LspDiagnosticsUnderlineWarning', colors.yellow, nil, 'undercurl', nil)
+highlight('LspDiagnosticsUnderlineInformation', colors.cyan, nil, 'undercurl', nil)
+highlight('LspDiagnosticsUnderlineHint', colors.cyan, nil, 'undercurl', nil)
+highlight('LspReferenceText', colors.orange, nil, nil, nil)
+highlight('LspReferenceRead', colors.orange, nil, nil, nil)
+highlight('LspReferenceWrite', colors.orange, nil, nil, nil)
+
+highlight("BufferLineIndicatorSelected", colors.purple , nil, nil, nil)
+highlight("BufferLineFill", nil , colors.black, nil, nil)
+
+-- HTML
+highlight("htmlArg", colors.yellow, nil, nil, nil)
+highlight("htmlBold", colors.yellow, nil, "bold", nil)
+highlight("htmlEndTag", colors.white, nil, nil, nil)
+highlight("htmlH1", colors.pink, nil, nil, nil)
+highlight("htmlH2", colors.pink, nil, nil, nil)
+highlight("htmlH3", colors.pink, nil, nil, nil)
+highlight("htmlH4", colors.pink, nil, nil, nil)
+highlight("htmlH5", colors.pink, nil, nil, nil)
+highlight("htmlH6", colors.pink, nil, nil, nil)
+highlight("htmlItalic", colors.purple, nil, "italic", nil)
+highlight("htmlLink", colors.purple, nil, "underline", nil)
+highlight("htmlSpecialChar", colors.yellow, nil, nil, nil)
+highlight("htmlSpecialTagName", colors.cyan, nil, nil, nil)
+highlight("htmlTag", colors.pink, nil, nil, nil)
+highlight("htmlTagN", colors.pink, nil, nil, nil)
+highlight("htmlTagName", colors.cyan, nil, nil, nil)
+highlight("htmlTitle", colors.white, nil, nil, nil)
+
+
+-- Markdown
+highlight("markdownBlockquote", colors.yellow, nil, "italic", nil)
+highlight("markdownBold", colors.orange, nil, "bold", nil)
+highlight("markdownCode", colors.green, nil, nil, nil)
+highlight("markdownCodeBlock", colors.orange, nil, nil, nil)
+highlight("markdownCodeDelimiter", colors.red, nil, nil, nil)
+highlight("markdownH1", colors.pink, nil, "bold", nil)
+highlight("markdownH2", colors.pink, nil, "bold", nil)
+highlight("markdownH3", colors.pink, nil, "bold", nil)
+highlight("markdownH4", colors.pink, nil, "bold", nil)
+highlight("markdownH5", colors.pink, nil, "bold", nil)
+highlight("markdownH6", colors.pink, nil, "bold", nil)
+highlight("markdownHeadingDelimiter", colors.red, nil, nil, nil)
+highlight("markdownHeadingRule", colors.comment, nil, nil, nil)
+highlight("markdownId", colors.purple, nil, nil, nil)
+highlight("markdownIdDeclaration", colors.cyan, nil, nil, nil)
+highlight("markdownIdDelimiter", colors.purple, nil, nil, nil)
+highlight("markdownItalic", colors.yellow, nil, "italic", nil)
+highlight("markdownLinkDelimiter", colors.purple, nil, nil, nil)
+highlight("markdownLinkText", colors.pink, nil, nil, nil)
+highlight("markdownListMarker", colors.cyan, nil, nil, nil)
+highlight("markdownOrderedListMarker", colors.red, nil, nil, nil)
+highlight("markdownRule", colors.comment, nil, nil, nil)
+
+highlight("diffAdded", colors.green, nil, nil, nil)
+highlight("diffRemoved", colors.red, nil, nil, nil)
+highlight("diffFileId", colors.yellow, nil, "bold,reverse", nil)
+highlight("diffFile", colors.nontext, nil, nil, nil)
+highlight("diffNewFile", colors.green, nil, nil, nil)
+highlight("diffOldFile", colors.red, nil, nil, nil)
+
+highlight("debugPc", nil, colors.cyan, nil, nil)
+highlight("debugBreakpoint", colors.red, nil, "reverse", nil)
+
+highlight('GitSignsAdd', colors.bright_green, nil, nil, nil)
+highlight('GitSignsChange', colors.cyan, nil, nil, nil)
+highlight('GitSignsDelete', colors.bright_red, nil, nil, nil)
+highlight('GitSignsAddLn', colors.black, colors.bright_green, nil, nil)
+highlight('GitSignsChangeLn', colors.black, colors.cyan, nil, nil)
+highlight('GitSignsDeleteLn', colors.black, colors.bright_red, nil, nil)
+
+EOF
